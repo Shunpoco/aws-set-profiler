@@ -18,5 +18,5 @@ cat << EOF
 Well done!
 Now we put a command \`aws-set-profile\` on \$HOME/.bin.
 If you don't have a path to \$HOME/.bin, please add.
-You must restart your terminal or call \`source \$HOME/.zshrc\`.
+You must restart your terminal.
 EOF
