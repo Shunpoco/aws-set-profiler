@@ -4,11 +4,23 @@ import (
 	"aws-set-profiler/src/parser"
 	"aws-set-profiler/src/prompt"
 	"aws-set-profiler/src/writer"
+	"flag"
 	"fmt"
 )
 
+var configDir string
+
+func init() {
+	flag.StringVar(&configDir, "directory", "~/.aws", "The directory of aws config file.")
+}
+
 func main() {
-	items, err := parser.ParseConfig("./test_config")
+	flag.Parse()
+
+	configFile := fmt.Sprintf("%s/config", configDir)
+	profileFile := fmt.Sprintf("%s/profile", configDir)
+
+	items, err := parser.ParseConfig(configFile)
 	if err != nil {
 		fmt.Printf("Parser faile: %v\n", err)
 		return
@@ -19,5 +31,5 @@ func main() {
 		return
 	}
 
-	writer.WriteProfile("config", profile)
+	writer.WriteProfile(profileFile, profile)
 }
