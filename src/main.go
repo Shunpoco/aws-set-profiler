@@ -6,12 +6,14 @@ import (
 	"aws-set-profiler/src/writer"
 	"flag"
 	"fmt"
+	"os"
 )
 
 var configDir string
 
 func init() {
-	flag.StringVar(&configDir, "directory", "~/.aws", "The directory of aws config file.")
+	homeDir, _ := os.UserHomeDir()
+	flag.StringVar(&configDir, "directory", fmt.Sprintf("%s/.aws", homeDir), "The directory of aws config file.")
 }
 
 func main() {
@@ -22,7 +24,7 @@ func main() {
 
 	items, err := parser.ParseConfig(configFile)
 	if err != nil {
-		fmt.Printf("Parser faile: %v\n", err)
+		fmt.Printf("Parser failed: %v\n", err)
 		return
 	}
 	profile, err := prompt.GetProfile(items)
