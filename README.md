@@ -2,6 +2,8 @@
 This program sets AWS profile which user selected.
 You no longer need to call `aws --profile=xxxx`, just call `aws`!
 
+<img src="./img/demo.gif" width="650">
+
 ## Install
 ### Bash
 ```bash
@@ -32,4 +34,10 @@ Use the arrow keys to navigate: ↓ ↑ → ←
     profile4
 ```
 
-Finally, you can call `aws` command with out `--profile` option!
+Now the profile is set!
+```bash
+$ aws configure list
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                 profile3           manual    --profile
+```
