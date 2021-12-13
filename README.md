@@ -9,12 +9,13 @@ You no longer need to call `aws --profile=xxxx`, just call `aws`!
 ```bash
 ./install_bash.sh
 ```
-Then you restart a terminal.
 
 ### Zsh
 ```zsh
 ./install_zsh.sh
 ```
+
+
 Then you restart a terminal.
 
 ## How to use
